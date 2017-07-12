@@ -11,14 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 5) do
+ActiveRecord::Schema.define(version: 9) do
+
+  create_table "actors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+  end
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
   end
 
+  create_table "characters", force: :cascade do |t|
+    t.string  "name"
+    t.integer "show_id"
+    t.string  "catchphrase"
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "shows", force: :cascade do |t|
+    t.string "name"
+    t.string "genre"
   end
 
   create_table "songs", force: :cascade do |t|
